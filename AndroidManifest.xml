@@ -26,6 +26,8 @@
             android:name="com.example.foodtruck.UserLocationsView"
             android:label="@string/title_activity_user_locations_view" >
         </activity>
+        
+
     </application>
 
 </manifest>
