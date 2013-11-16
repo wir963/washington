@@ -4,8 +4,13 @@ import java.net.MalformedURLException;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.Application;
+import android.content.Intent;
 import android.view.Menu;
 import com.microsoft.windowsazure.mobileservices.*;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class MainActivity extends Activity {
 	
@@ -15,12 +20,28 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
 		try {
 			mClient = new MobileServiceClient("https://gettruckedup.azure-mobile.net/", "djHwmBvRUfXjnAYNCAnPawmlcHQNrx41", this);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		// Go to Food Truck activity
+		
+		
+		// Go to user locations view activity
+		
+		Button goToUserLocationViewButton = (Button) findViewById(R.id.userViewButton);
+		goToUserLocationViewButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent launchUserLocationView = new Intent(getApplicationContext(), UserLocationsView.class);
+				startActivity(launchUserLocationView);
+			}});// end of onClickListener
+		
 	}
 
 	@Override

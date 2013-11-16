@@ -11,6 +11,21 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="@string/hello_world"
+        android:id="@+id/welcomeText" />
+    
+    <Button 
+        android:id="@+id/truckViewButton"
+        android:text="Food Truck View"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcomeText"/>
+    
+    <Button 
+        android:id="@+id/userViewButton"
+        android:text="User View"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/truckViewButton"/>
 
 </RelativeLayout>
