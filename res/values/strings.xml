@@ -7,8 +7,11 @@
     <string name="title_activity_user_locations_view">UserLocationsView</string>
     <string name="title_activity_welcome_screen">WelcomeScreen</string>
     <string name="title_activity_paypal_transaction">PaypalTransactionActivity</string>
-	<string name="pledge_message">Enter your pledge amount:</string>
-	<string name="pledge_hint_message">$</string>
-	<string name="submit_text">Pledge!</string>
-	<string name="title_activity_stop_select">StopSelectActivity</string>
+    <string name="pledge_message">Enter your pledge amount:</string>
+    <string name="pledge_hint_message">$</string>
+    <string name="submit_text">Pledge!</string>
+    <string name="title_activity_stop_select">StopSelectActivity</string>
+    <string name="title_activity_stop_list">StopListActivity</string>
+    <string name="truck_stop_list">Pick Your Stops For Today!</string>
+
 </resources>

@@ -251,6 +251,7 @@ public class UserLocationsView extends Activity implements LocationListener
 	///PAYPAL STUFF
 	
 	public void onBuyPressed(View pressed) {
+		Log.w("pledge amount", pledgeAmount.getText().toString());
 		 PayPalPayment newPayment = new PayPalPayment(new BigDecimal(pledgeAmount.getText().toString()), "USD", "Pledge Amount");
 	        
 	        Intent intent = new Intent(this, PaymentActivity.class);
@@ -276,9 +277,7 @@ public class UserLocationsView extends Activity implements LocationListener
 
 	                // TODO: send 'confirm' to your server for verification.
 	                // see https://developer.paypal.com/webapps/developer/docs/integration/mobile/verify-mobile-payment/
-	                // for more details.
-	                
-	                
+	                // for more details.	                
 
 	            } catch (JSONException e) {
 	                Log.e("paymentExample", "an extremely unlikely failure occurred: ", e);
