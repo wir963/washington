@@ -6,23 +6,25 @@ import java.util.UUID;
 
 public class TruckStop {
 
-	FoodTruck truck;
+	int id;
+	int truckId;
 	
-	// will later break into longitude/latitude or something better
-	String gPSCoordinate;
+	double longitude;
+	double latitude;
 	
-	ArrayList<Pledge> pledges = new ArrayList<Pledge>();
+	//ArrayList<Pledge> pledges = new ArrayList<Pledge>();
 	
-	public TruckStop(FoodTruck ft, String location){
-		truck = ft;
-		gPSCoordinate = location;
+	public TruckStop(){
+		
 	}
 	
-	public Double getAmountPledged(){
+	/*public Double getAmountPledged(){
 		Double amount = 0.00;
 		for (int i = 0; i < pledges.size(); i++){
 			amount += pledges.get(i).getAmount();
 		}
 		return amount;
-	}
+	}*/
+	
+	
 }

@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.Window;
 import android.view.WindowManager;
@@ -39,7 +40,7 @@ public class MainActivity extends Activity {
 			e.printStackTrace();
 		}
 		// Go to Food Truck activity
-		
+		exampleMethod();
 		
 		// Go to user locations view activity
 		
@@ -63,17 +64,40 @@ public class MainActivity extends Activity {
 	}
 	
 	public void exampleMethod() {
-		/*Item item = new Item();
-		item.Text = "Awesome item";
-		mClient.getTable(Item.class).insert(item, new TableOperationCallback<Item>() {
-		      public void onCompleted(Item entity, Exception exception, ServiceFilterResponse response) {
+		
+		
+		FoodTruck ft = new FoodTruck();
+		ft.category = "Bacon";
+		ft.truckName = "Bacon, Bacon, Bacon";
+		
+		
+		
+		mClient.getTable(FoodTruck.class).insert(ft, new TableOperationCallback<FoodTruck>() {
+		      public void onCompleted(FoodTruck entity, Exception exception, ServiceFilterResponse response) {
 		            if (exception == null) {
-		                  // Insert succeeded
+		            	Log.w("success", "FoodTruck object created!");
 		            } else {
 		                  // Insert failed
+		            	exception.printStackTrace();
 		            }
 		      }
-		});*/
+		});
+		
+		TruckStop ts = new TruckStop();
+		ts.latitude = 0.0;
+		ts.longitude = 0.0;
+		ts.truckId = ft.id;
+		
+		mClient.getTable(TruckStop.class).insert(ts, new TableOperationCallback<TruckStop>() {
+		      public void onCompleted(TruckStop entity, Exception exception, ServiceFilterResponse response) {
+		            if (exception == null) {
+		                  Log.w("success", "Truck Stop Object created!");
+		            } else {
+		                  // Insert failed
+		            	exception.printStackTrace();
+		            }
+		      }
+		});
 	}
 
 }
