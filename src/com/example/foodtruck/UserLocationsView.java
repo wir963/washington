@@ -77,8 +77,8 @@ public class UserLocationsView extends Activity implements LocationListener
 				String stopID = snippet;
 				
 				selectedStop = getStopWithId(stopID);
-				selectedStop.populateTruckInfo();
-				selectedStop.populatePledgeInfo();
+				//selectedStop.populateTruckInfo();
+				//selectedStop.populatePledgeInfo();
 		
 				TextView truckName = (TextView) findViewById(R.id.truckName);
 				truckName.setText(selectedStop.foodTruck.truckName);
@@ -90,7 +90,6 @@ public class UserLocationsView extends Activity implements LocationListener
 				ImageView truckImage = (ImageView) findViewById(R.id.truckImage);
 				Drawable image = getResources().getDrawable(imageResource);
 			    truckImage.setImageDrawable(image);
-				
 				
 				TextView truckDescription = (TextView) findViewById(R.id.truckDescription);
 				truckDescription.setText("Type: " + selectedStop.foodTruck.category + "\n" + selectedStop.foodTruck.description);
@@ -108,14 +107,13 @@ public class UserLocationsView extends Activity implements LocationListener
 			}
 
 			private TruckStop getStopWithId(String stopID) {
-				// TODO Auto-generated method stub
-				int intStopId =  Integer.parseInt(stopID);
+				/*int intStopId =  Integer.parseInt(stopID);
 				for(int i = 0; i < currentStopList.size(); i++) {
 					if(intStopId == currentStopList.get(i).stopId) {
 						return currentStopList.get(i);
 					}
 					
-				}
+				}*/
 				return null;
 			}
 		});
@@ -169,8 +167,8 @@ public class UserLocationsView extends Activity implements LocationListener
               public void onCompleted(List<TruckStop> result, int count, Exception exception, ServiceFilterResponse response) {
             	  if (exception == null) {
             		  for (TruckStop ts : result) {
-            			  Log.w("TruckStop", ts.stopId + " ");
-            			  map.addMarker(new MarkerOptions().position(new LatLng(ts.latitude,ts.longitude)).title(ts.truckId + " ").snippet("" + ts.stopId));
+            			  //Log.w("TruckStop", ts.stopId + " ");
+            			  map.addMarker(new MarkerOptions().position(new LatLng(ts.latitude,ts.longitude)).title(ts.foodTruck.truckName).snippet("" + ts.foodTruck.description));
             		  }
             		  currentStopList = result;
             	  } 
@@ -191,8 +189,6 @@ public class UserLocationsView extends Activity implements LocationListener
 		if (location != null) {
 			myLatLng = new LatLng(location.getLatitude(), location.getLongitude());
 		}
-
-
 	}
 
 	@Override

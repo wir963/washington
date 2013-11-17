@@ -1,20 +1,19 @@
 package com.example.foodtruck;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.UUID;
+import java.util.List;
 
 import android.util.Log;
 
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
+import com.microsoft.windowsazure.mobileservices.TableQueryCallback;
 
 
 public class TruckStop {
 
 	int stopId;
-	int truckId;
 	String biddingEndTime;
 	String truckArrivalTime;
 	int currentAmount;
@@ -22,15 +21,18 @@ public class TruckStop {
 	
 	FoodTruck foodTruck;
 	
+	// location
 	double longitude;
 	double latitude;
 	
-	Date endTime;
+	// associated food truck information
+	public int truckId;
+	public String truckName;
+	public String category;
+	public String description;
+	public String imageName;
 	
-	
-	// These are the IDs of the pledges
 	ArrayList<Pledge> pledges = new ArrayList<Pledge>();
-	int pledgeTotal = 0;
 	
 	public TruckStop(){
 		
@@ -56,27 +58,27 @@ public class TruckStop {
 		      }
 		});
 	}
-
-	public void populateTruckInfo() {
-		// TODO Auto-generated method stub
-		
-		//get name and type of food truck by querying food truck table
-		
-	}
-
-	public void populatePledgeInfo() {
-		// TODO Auto-generated method stub
-		
-		//get array list of pledges, or just count up the totals
-	}
 	
-	/*public Double getAmountPledged(){
+	public Double getAmountPledged(MobileServiceClient mClient){
+		
 		Double amount = 0.00;
+		mClient.getTable(Pledge.class).where().field("truckStopId").eq(truckId).execute(new TableQueryCallback<Pledge>() {
+            public void onCompleted(List<Pledge> result, int count, Exception exception, ServiceFilterResponse response) {
+            	if (exception == null) {
+          		  for (Pledge p : result) {
+          			  pledges.add(p);
+          		  }
+          	  } 
+          	  else {
+          		  exception.printStackTrace();
+          	  }
+            }
+		});
 		for (int i = 0; i < pledges.size(); i++){
-			amount += pledges.get(i).getAmount();
+			amount = pledges.get(i).getAmount();
 		}
 		return amount;
-	}*/
+	}
 	
 	
 }

@@ -8,7 +8,7 @@ import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
 
 public class FoodTruck {
 	
-	public int id;
+	public int truckId;
 	public String truckName;
 	public String category;
 	public String description;
@@ -18,14 +18,8 @@ public class FoodTruck {
 	//private String ppClientId;
 	//private String ccEnv;
 	
-	/*public FoodTruck(String name, String category, String clientId, String env){
-		truckName = name;
-		this.category = category;
-		ppClientId = clientId;
-		ccEnv = env;
-	}*/
-	
 	public FoodTruck() {
+		
 	}
 	
 	public void insertIntoDB(MobileServiceClient mClient){
@@ -33,7 +27,7 @@ public class FoodTruck {
 		      public void onCompleted(FoodTruck entity, Exception exception, ServiceFilterResponse response) {
 		            if (exception == null) {
 		            	Log.w("success", "FoodTruck object created!");
-		            	Log.w("id of the food truck", entity.id + " ");
+		            	Log.w("id of the food truck", entity.truckId + " ");
 		            } else {
 		                  // Insert failed
 		            	exception.printStackTrace();
