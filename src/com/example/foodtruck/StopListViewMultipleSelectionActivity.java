@@ -83,7 +83,7 @@ public class StopListViewMultipleSelectionActivity extends Activity implements
             outputStrArr[i] = selectedItems.get(i);
         }
  
-        Toast.makeText(getApplicationContext(), outputStrArr.toString(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), outputStrArr.toString(), Toast.LENGTH_LONG).show();
         Intent intent = new Intent(getApplicationContext(), StopSelectActivity.class);
  
         // Create a bundle object
