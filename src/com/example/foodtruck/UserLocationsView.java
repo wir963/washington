@@ -51,6 +51,9 @@ public class UserLocationsView extends Activity implements LocationListener
 	protected Location location;
 	private MobileServiceClient mClient;
 	
+	protected List<TruckStop> currentStopList;
+	protected TruckStop selectedStop;
+	
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +73,28 @@ public class UserLocationsView extends Activity implements LocationListener
 			@Override
 			public boolean onMarkerClick(Marker arg0) {
 				String snippet = arg0.getSnippet();
+				String stopID = snippet;
+				
+				selectedStop = getStopWithId(stopID);
+				selectedStop.populateTruckInfo();
+				selectedStop.populatePledgeInfo();
+		
+				TextView truckInfo = (TextView) findViewById(R.id.truckInfo);
+				truckInfo.setText("Name: " + selectedStop.foodTruck.truckName + " Type: " + selectedStop.foodTruck.category);
+				
 				return false;
+			}
+
+			private TruckStop getStopWithId(String stopID) {
+				// TODO Auto-generated method stub
+				int intStopId =  Integer.parseInt(stopID);
+				for(int i = 0; i < currentStopList.size(); i++) {
+					if(intStopId == currentStopList.get(i).stopId) {
+						return currentStopList.get(i);
+					}
+					
+				}
+				return null;
 			}
 		});
 		lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -123,9 +147,10 @@ public class UserLocationsView extends Activity implements LocationListener
               public void onCompleted(List<TruckStop> result, int count, Exception exception, ServiceFilterResponse response) {
             	  if (exception == null) {
             		  for (TruckStop ts : result) {
-            			  Log.w("TruckStop", ts.id + " ");
-            			  map.addMarker(new MarkerOptions().position(new LatLng(ts.latitude,ts.longitude)).title(ts.truckId + " ").snippet("45/55$/Bid Now!"));
+            			  Log.w("TruckStop", ts.stopId + " ");
+            			  map.addMarker(new MarkerOptions().position(new LatLng(ts.latitude,ts.longitude)).title(ts.truckId + " ").snippet("" + ts.stopId));
             		  }
+            		  currentStopList = result;
             	  } 
             	  else {
             		  exception.printStackTrace();
