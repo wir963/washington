@@ -10,19 +10,24 @@ import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
-
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.philanthrofeed.R;
+import com.example.philanthrofeed.Recipient_Selection;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.location.LocationClient;
@@ -75,6 +80,25 @@ public class UserLocationsView extends Activity implements LocationListener
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(myLatLng, 10));
 		addMarkers();
 		//map.addMarker(new MarkerOptions().position(new LatLng(0,0)).title("Hello World").snippet("45/55$/Bid Now!"));
+	
+		Button payButton = (Button) findViewById(R.id.paypalButton);
+		
+		payButton.setOnClickListener(new OnClickListener(){
+			
+			@Override
+			public void onClick(View arg0) {
+		        Intent loginIntent = new Intent();
+				
+				EditText pledgeAmount = (EditText) findViewById(R.id.pledgeAmount);
+				
+				String pledgeAmt = pledgeAmount.getText().toString();
+				
+				//Toast newToast = Toast.makeText(getApplicationContext(), username + password, Toast.LENGTH_LONG);
+				//newToast.show();
+    			Intent moveToMenuSelection = new Intent(getApplicationContext(), PaypalTransactionActivity.class); //will launch the PayPal Transaction app
+    			startActivity(moveToMenuSelection);
+			}});
+		
 	}
 
 	@Override
