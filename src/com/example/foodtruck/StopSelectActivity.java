@@ -104,7 +104,7 @@ public class StopSelectActivity extends Activity {
 
 				TextView locationTitle = (TextView) outputView.findViewById(R.id.list_title);
 				TextView locationAmount = (TextView) outputView.findViewById(R.id.list_amount);
-				Button selectLocationButton = (Button) findViewById(R.id.selectLocationButton); // Button for when the food truck driver wants to decide on the location (s)he's going to be at today.
+				Button selectLocationButton = (Button) outputView.findViewById(R.id.selectLocationButton); // Button for when the food truck driver wants to decide on the location (s)he's going to be at today.
 				selectLocationButton.setOnClickListener(new OnClickListener() {
 
 					@Override
@@ -113,7 +113,7 @@ public class StopSelectActivity extends Activity {
 						launchUserLocationView.putExtra("", stopList.get(position).id);
 						startActivity(launchUserLocationView);
 					}});// end of onClickListener
-
+				TruckStop ts = stopList.get(position);
 				locationTitle.setText(stopList.get(position).location); // Text description of this location
 
 				locationAmount.setText(stopList.get(position).getAmountPledged(mClient) + "");  
