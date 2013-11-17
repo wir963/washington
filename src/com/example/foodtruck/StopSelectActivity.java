@@ -1,0 +1,136 @@
+package com.example.foodtruck;
+
+import java.net.MalformedURLException;
+import java.util.List;
+
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
+import com.microsoft.windowsazure.mobileservices.TableQueryCallback;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.app.ListActivity;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class StopSelectActivity extends Activity {
+
+	private MobileServiceClient mClient;
+	private int truckId = 1;// assuming the food truck user is food truck where id == 1
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_stop_select);
+
+		// connect to the Azure MobileServiceClient
+		try {
+			mClient = new MobileServiceClient("https://gettruckedup.azure-mobile.net/", "djHwmBvRUfXjnAYNCAnPawmlcHQNrx41", this);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		final Context context = this;
+		final List<TruckStop> my_results;
+		
+		mClient.getTable(TruckStop.class).where().field("truckId").eq(truckId).execute(new TableQueryCallback<TruckStop>() {
+			public void onCompleted(final List<TruckStop> result, int count, Exception exception, ServiceFilterResponse response) {
+				if (exception == null) {
+					Log.w("logging", "no exceptions!" + result.size());
+					
+					menuAdapter adapter = new menuAdapter(getApplicationContext(), result);
+					ListView lView = (ListView) findViewById(R.id.list);
+					lView.setAdapter(adapter);
+
+				}
+				
+          	  else {
+          		  exception.printStackTrace();
+          	  }
+            }
+		});
+
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.stop_select, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
+
+		return true;
+	}
+	
+	
+	 public class menuAdapter extends BaseAdapter {
+
+		 
+		 private Context currentContext;
+		 private List<TruckStop> stopList;
+		 
+		 public menuAdapter(Context inputContext, List<TruckStop> inputTruckStops) {
+		 
+			 currentContext = inputContext;
+			 stopList = inputTruckStops;
+		 }
+		 
+		@Override
+		public int getCount() {
+			return stopList.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			return stopList.get(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			return 0;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			
+			LayoutInflater inflater = (LayoutInflater) currentContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			View outputView;
+			
+			
+			if(convertView == null) {
+				outputView = new View(currentContext);
+				outputView = inflater.inflate(R.layout.list_row, null);
+				
+				TextView listItem = (TextView) outputView.findViewById(R.id.list_item);
+				TextView listTitle = (TextView) outputView.findViewById(R.id.list_title);
+				
+				listItem.setText("" + stopList.get(position).id);
+				
+				listTitle.setText("" + stopList.get(position).truckId);
+			}
+			else
+			{
+				outputView = (RelativeLayout)convertView;
+			}
+			
+			return outputView;
+		}
+		 
+		 
+	 }
+
+}

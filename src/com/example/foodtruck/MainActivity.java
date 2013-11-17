@@ -54,6 +54,16 @@ public class MainActivity extends Activity {
 				startActivity(launchUserLocationView);
 			}});// end of onClickListener
 		
+		Button goToTruckViewButton = (Button) findViewById(R.id.truckViewButton);
+		goToTruckViewButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent launchTruckLocationView = new Intent(getApplicationContext(), StopSelectActivity.class);
+				startActivity(launchTruckLocationView);
+			}});// end of onClickListener
+		
 	}
 
 	@Override
