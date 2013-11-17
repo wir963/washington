@@ -4,16 +4,18 @@ import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
+//import com.google.android.gms.maps.CameraUpdateFactory;
+//import com.google.android.gms.maps.GoogleMap;
+//import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
+//import com.google.android.gms.maps.MapFragment;
+//import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+//import com.google.android.gms.maps.model.LatLng;
+//import com.google.android.gms.maps.model.Marker;
+//import com.google.android.gms.maps.model.MarkerOptions;
 
 public class UserLocationsView extends Activity {
 
@@ -21,28 +23,37 @@ public class UserLocationsView extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		//no android header
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+		//Remove notification bar
+		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
 		setContentView(R.layout.activity_user_locations_view);
 		
-		GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-		map.setMyLocationEnabled(true);
 		
-		map.setOnMarkerClickListener(new OnMarkerClickListener() {
-
-			@Override
-			public boolean onMarkerClick(Marker arg0) {
-				// TODO Auto-generated method stub
-				
-				String snippet = arg0.getSnippet();
-				Toast.makeText(getApplicationContext(), snippet, Toast.LENGTH_LONG).show();
-				
-				
-				return false;
-			}
-			
-			
-		});
 		
-		map.addMarker(new MarkerOptions().position(new LatLng(0,0)).title("Hello World").snippet("45/55$/Bid Now!"));
+//		GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+//		map.setMyLocationEnabled(true);
+//		
+//		map.setOnMarkerClickListener(new OnMarkerClickListener() {
+//
+//			@Override
+//			public boolean onMarkerClick(Marker arg0) {
+//				// TODO Auto-generated method stub
+//				
+//				String snippet = arg0.getSnippet();
+//				Toast.makeText(getApplicationContext(), snippet, Toast.LENGTH_LONG).show();
+//				
+//				
+//				return false;
+//			}
+//			
+//			
+//		});
+//		
+//		map.addMarker(new MarkerOptions().position(new LatLng(0,0)).title("Hello World").snippet("45/55$/Bid Now!"));
 	}
 
 	@Override
