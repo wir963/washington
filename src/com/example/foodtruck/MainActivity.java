@@ -60,7 +60,6 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				Intent launchTruckLocationView = new Intent(getApplicationContext(), StopSelectActivity.class);
 				startActivity(launchTruckLocationView);
 			}});// end of onClickListener
@@ -77,9 +76,15 @@ public class MainActivity extends Activity {
 	public void exampleMethod() {
 		
 		TruckStop ts = new TruckStop();
-		ts.latitude = 37.4;
+		ts.latitude = 37.3;
 		ts.longitude = -121.9;
 		ts.truckId = 1;
+		ts.truckName = "Tacos, Tacos, Tacos";
+		ts.description = "Really good tacos";
+		ts.biddingEndTime = "11:00";
+		ts.truckArrivalTime = "2:00";
+		ts.location = "Corner of Central Park";
+		ts.imageName = "ic_launcher";
 		ts.insertIntoDB(mClient);
 		
 	}

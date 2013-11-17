@@ -70,9 +70,7 @@
         android:ems="7"
         android:hint="@string/pledge_hint_message"
         android:background="@drawable/white_edit_text"
-        android:layout_marginBottom="10dp" >
-	 <requestFocus />
-	 </EditText>
+        android:layout_marginBottom="10dp" />
      
      <Button 
         android:id="@+id/paypalButton"

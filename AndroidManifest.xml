@@ -66,6 +66,8 @@
         <activity
             android:name="com.example.foodtruck.StopSelectActivity"
             android:label="@string/title_activity_stop_select" >
+        </activity>
+        <activity
             android:name="com.example.foodtruck.PaypalTransactionActivity"
             android:label="@string/title_activity_paypal_transaction" >
         </activity>
