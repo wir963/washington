@@ -48,7 +48,7 @@ public class StopListViewMultipleSelectionActivity extends Activity implements
         //adapter = new menuAdapter(getApplicationContext(), stops);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setAdapter(adapter);
- 
+        
         button.setOnClickListener(this);
     }
  

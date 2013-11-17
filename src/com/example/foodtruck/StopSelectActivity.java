@@ -45,6 +45,7 @@ public class StopSelectActivity extends Activity {
 				if (exception == null) {					
 					menuAdapter adapter = new menuAdapter(getApplicationContext(), result);
 					ListView lView = (ListView) findViewById(R.id.list);
+					lView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 					lView.setAdapter(adapter);
 				}
 				else {

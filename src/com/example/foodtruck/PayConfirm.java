@@ -34,8 +34,12 @@ import com.github.sendgrid.SendGrid;
 public class PayConfirm extends Activity{
 	
 	protected static final String EXTRA_PAYMENT_AMOUNT = null;
-	protected static final String EXTRA_CLIENT_EMAIL = null;
-
+	TextView emailText;
+	TextView doneText;
+	EditText userEmailField;
+	String userEmail;
+	Button button;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		//Remove title bar
@@ -43,23 +47,21 @@ public class PayConfirm extends Activity{
 
 		//Remove notification bar
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		setContentView(R.layout.pay_confirm_layout);
 
 		super.onCreate(savedInstanceState);
-		final TextView emailText = (TextView) findViewById(R.id.emailText);
+		emailText = (TextView) findViewById(R.id.emailText);
 		emailText.setText("Give us your email so we can tell you if your food truck is coming to you!");
-
 		emailText.setVisibility(View.VISIBLE);
 		
-		final TextView doneText = (TextView) findViewById(R.id.doneText);
+		doneText = (TextView) findViewById(R.id.doneText);
 		doneText.setText("Awesome!  We'll let you know if you getTrucked!");
 		doneText.setVisibility(View.GONE);
+				
+		userEmailField = (EditText) findViewById(R.id.userEmail);
+		userEmail = userEmailField.getText().toString();
 		
-		setContentView(R.layout.pay_confirm_layout);
-		
-		final EditText userEmailField = (EditText) findViewById(R.id.userEmail);
-		final String userEmail = userEmailField.getText().toString();
-		
-		final Button button = (Button) findViewById(R.id.submitUserEmailButton);
+		button = (Button) findViewById(R.id.submitUserEmailButton);
 
 		button.setOnClickListener(new OnClickListener(){
 
