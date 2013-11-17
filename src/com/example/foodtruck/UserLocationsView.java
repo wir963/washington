@@ -267,9 +267,7 @@ public class UserLocationsView extends Activity implements LocationListener
 
 	                // TODO: send 'confirm' to your server for verification.
 	                // see https://developer.paypal.com/webapps/developer/docs/integration/mobile/verify-mobile-payment/
-	                // for more details.
-	                
-	                
+	                // for more details.	                
 
 	            } catch (JSONException e) {
 	                Log.e("paymentExample", "an extremely unlikely failure occurred: ", e);
