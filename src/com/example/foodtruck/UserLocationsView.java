@@ -81,14 +81,13 @@ public class UserLocationsView extends Activity implements LocationListener
 			}
 
 			private TruckStop getStopWithId(String stopID) {
-				// TODO Auto-generated method stub
-				int intStopId =  Integer.parseInt(stopID);
+				/*int intStopId =  Integer.parseInt(stopID);
 				for(int i = 0; i < currentStopList.size(); i++) {
 					if(intStopId == currentStopList.get(i).stopId) {
 						return currentStopList.get(i);
 					}
 					
-				}
+				}*/
 				return null;
 			}
 		});
@@ -123,8 +122,8 @@ public class UserLocationsView extends Activity implements LocationListener
               public void onCompleted(List<TruckStop> result, int count, Exception exception, ServiceFilterResponse response) {
             	  if (exception == null) {
             		  for (TruckStop ts : result) {
-            			  Log.w("TruckStop", ts.stopId + " ");
-            			  map.addMarker(new MarkerOptions().position(new LatLng(ts.latitude,ts.longitude)).title(ts.truckId + " ").snippet("" + ts.stopId));
+            			  //Log.w("TruckStop", ts.stopId + " ");
+            			  map.addMarker(new MarkerOptions().position(new LatLng(ts.latitude,ts.longitude)).title(ts.name).snippet("" + ts.truckDescription));
             		  }
             		  currentStopList = result;
             	  } 
@@ -145,8 +144,6 @@ public class UserLocationsView extends Activity implements LocationListener
 		if (location != null) {
 			myLatLng = new LatLng(location.getLatitude(), location.getLongitude());
 		}
-
-
 	}
 
 	@Override
