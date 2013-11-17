@@ -46,7 +46,6 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				Intent launchUserLocationView = new Intent(getApplicationContext(), UserLocationsView.class);
 				startActivity(launchUserLocationView);
 			}});// end of onClickListener
@@ -56,7 +55,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent launchTruckLocationView = new Intent(getApplicationContext(), StopSelectActivity.class);
+				Intent launchTruckLocationView = new Intent(getApplicationContext(), StopListViewMultipleSelectionActivity.class);
 				startActivity(launchTruckLocationView);
 			}});// end of onClickListener
 		
@@ -73,7 +72,7 @@ public class MainActivity extends Activity {
 		
 		TruckStop ts = new TruckStop();
 		ts.latitude = 37.3;
-		ts.longitude = -121.9;
+		ts.longitude = -121.6;
 		ts.truckId = 1;
 		ts.truckName = "Blue Saigon";
 		ts.description = "Blue Saigon Truck is owned and operated by Kiem Nguyen. He is also the head chef of this truck and took his time to master each food item on the menu. Mr. Nguyen will not serve food to customers if he won't eat it himself. Blue Saigon Truck is new and different!";

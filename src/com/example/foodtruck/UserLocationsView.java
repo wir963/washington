@@ -242,6 +242,7 @@ public class UserLocationsView extends Activity implements LocationListener
 	///PAYPAL STUFF
 	
 	public void onBuyPressed(View pressed) {
+		Log.w("pledge amount", pledgeAmount.getText().toString());
 		 PayPalPayment newPayment = new PayPalPayment(new BigDecimal(pledgeAmount.getText().toString()), "USD", "Pledge Amount");
 	        
 	        Intent intent = new Intent(this, PaymentActivity.class);
