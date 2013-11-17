@@ -161,12 +161,8 @@ public class UserLocationsView extends Activity implements LocationListener
 			
 			@Override
 			public void onClick(View view) {
-		        Intent intent = new Intent(); //(this, PaymentActivity.class);
-				EditText pledgeAmount = (EditText) findViewById(R.id.pledgeAmount);				
-				String pledgeAmt = pledgeAmount.getText().toString();
 						        
-		        intent.putExtra(PayConfirm.EXTRA_CLIENT_EMAIL, CONFIG_RECEIVER_EMAIL);
-		        intent.putExtra(PayConfirm.EXTRA_PAYMENT_AMOUNT, pledgeAmt);
+		        //intent.putExtra(PayConfirm.EXTRA_CLIENT_EMAIL, CONFIG_RECEIVER_EMAIL);
 
 		        //intent.putExtra(PaymentActivity.EXTRA_RECEIVER_EMAIL, CONFIG_RECEIVER_EMAIL);
 		        
@@ -174,7 +170,7 @@ public class UserLocationsView extends Activity implements LocationListener
 		        //intent.putExtra(PaymentActivity.EXTRA_PAYER_ID, "your-customer-id-in-your-system");
 		        //intent.putExtra(PaymentActivity.EXTRA_PAYMENT, newPayment);
 		        
-		        startActivityForResult(intent, 0);
+		        //startActivityForResult(intent, 0);
 //				
 				onBuyPressed(view);
 
@@ -294,6 +290,13 @@ public class UserLocationsView extends Activity implements LocationListener
 	    
 		//Intent intent = new Intent(getApplicationContext(), PayConfirm.class); //will launch the menuSelection application
 		//startActivity(intent);
+	    
+	    Intent intent = new Intent(getApplicationContext(), PayConfirm.class); //(this, PaymentActivity.class);
+		EditText pledgeAmount = (EditText) findViewById(R.id.pledgeAmount);				
+		String pledgeAmt = pledgeAmount.getText().toString();
+        intent.putExtra(PayConfirm.EXTRA_PAYMENT_AMOUNT, pledgeAmt);
+
+        startActivity(intent);
 		
 	}
 
