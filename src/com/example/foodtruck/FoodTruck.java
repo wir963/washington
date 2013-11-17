@@ -8,7 +8,7 @@ import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
 
 public class FoodTruck {
 	
-	public int truckId;
+	public int id;
 	public String truckName;
 	public String category;
 	public String description;
@@ -27,7 +27,7 @@ public class FoodTruck {
 		      public void onCompleted(FoodTruck entity, Exception exception, ServiceFilterResponse response) {
 		            if (exception == null) {
 		            	Log.w("success", "FoodTruck object created!");
-		            	Log.w("id of the food truck", entity.truckId + " ");
+		            	Log.w("id of the food truck", entity.id + " ");
 		            } else {
 		                  // Insert failed
 		            	exception.printStackTrace();

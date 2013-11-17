@@ -110,13 +110,13 @@ public class StopSelectActivity extends Activity {
 					@Override
 					public void onClick(View v) {
 						Intent launchUserLocationView = new Intent(getApplicationContext(), UserLocationsView.class);
-						launchUserLocationView.putExtra(com.example.foodtruck.TruckStop.STOP_ID, stopList.get(position).stopId);
+						launchUserLocationView.putExtra("", stopList.get(position).id);
 						startActivity(launchUserLocationView);
 					}});// end of onClickListener
 
 				locationTitle.setText(stopList.get(position).location); // Text description of this location
-				locationAmount.setText(stopList.get(position).currentAmount);  
 
+				locationAmount.setText(stopList.get(position).getAmountPledged(mClient) + "");  
 			}
 			else
 			{

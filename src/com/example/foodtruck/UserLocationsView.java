@@ -59,6 +59,13 @@ public class UserLocationsView extends Activity implements LocationListener
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+		try {
+			mClient = new MobileServiceClient("https://gettruckedup.azure-mobile.net/", "djHwmBvRUfXjnAYNCAnPawmlcHQNrx41", this);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//no android header
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -73,17 +80,14 @@ public class UserLocationsView extends Activity implements LocationListener
 		map.setOnMarkerClickListener(new OnMarkerClickListener() {
 			@Override
 			public boolean onMarkerClick(Marker arg0) {
-				String snippet = arg0.getSnippet();
-				String stopID = snippet;
+				String stopID = arg0.getSnippet();
 				
 				selectedStop = getStopWithId(stopID);
-				//selectedStop.populateTruckInfo();
-				//selectedStop.populatePledgeInfo();
 		
 				TextView truckName = (TextView) findViewById(R.id.truckName);
-				truckName.setText(selectedStop.foodTruck.truckName);
+				truckName.setText(selectedStop.truckName);
 
-				String uri = "drawable/" + selectedStop.foodTruck.imageName;
+				String uri = "drawable/" + selectedStop.imageName;
 
 				int imageResource = getResources().getIdentifier(uri, null, getPackageName());
 
@@ -92,28 +96,28 @@ public class UserLocationsView extends Activity implements LocationListener
 			    truckImage.setImageDrawable(image);
 				
 				TextView truckDescription = (TextView) findViewById(R.id.truckDescription);
-				truckDescription.setText("Type: " + selectedStop.foodTruck.category + "\n" + selectedStop.foodTruck.description);
+				truckDescription.setText("Description: " + selectedStop.description);
 				
 				TextView truckLocation = (TextView) findViewById(R.id.truckLocation);
-				truckDescription.setText("Type: " + selectedStop.foodTruck.category + "\n" + selectedStop.location);
+				truckLocation.setText("Location: " + selectedStop.location);
 				
 				TextView endTime = (TextView) findViewById(R.id.endTime);
 				endTime.setText("Bidding End Time: " + selectedStop.biddingEndTime);
 				
 				TextView currentAmount = (TextView) findViewById(R.id.currentAmount);
-				endTime.setText("Current Amount: " + selectedStop.currentAmount);
-
+				currentAmount.setText("Current Amount: " + selectedStop.getAmountPledged(mClient));
+				
 				return false;
 			}
 
 			private TruckStop getStopWithId(String stopID) {
-				/*int intStopId =  Integer.parseInt(stopID);
+				int intStopId =  Integer.parseInt(stopID);
 				for(int i = 0; i < currentStopList.size(); i++) {
-					if(intStopId == currentStopList.get(i).stopId) {
+					if(intStopId == currentStopList.get(i).id) {
 						return currentStopList.get(i);
 					}
 					
-				}*/
+				}
 				return null;
 			}
 		});
@@ -153,22 +157,16 @@ public class UserLocationsView extends Activity implements LocationListener
 	}
 	
 	public void addMarkers(){
-		// connect to the Azure MobileServiceClient
-		try {
-			mClient = new MobileServiceClient("https://gettruckedup.azure-mobile.net/", "djHwmBvRUfXjnAYNCAnPawmlcHQNrx41", this);
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		// query the database for five TruckStops within 1/4 of a degree of longitude and latitude - later
-		// grab all the Truck Stops out of the db
+		// grab all the Truck Stops out of the database
 		mClient.getTable(TruckStop.class).execute(new TableQueryCallback<TruckStop>() {
               public void onCompleted(List<TruckStop> result, int count, Exception exception, ServiceFilterResponse response) {
             	  if (exception == null) {
+            		  currentStopList = result;
             		  for (TruckStop ts : result) {
             			  //Log.w("TruckStop", ts.stopId + " ");
-            			  map.addMarker(new MarkerOptions().position(new LatLng(ts.latitude,ts.longitude)).title(ts.foodTruck.truckName).snippet("" + ts.foodTruck.description));
+            			  map.addMarker(new MarkerOptions().position(new LatLng(ts.latitude,ts.longitude)).title(ts.truckName).snippet("" + ts.id));
             		  }
             		  currentStopList = result;
             	  } 
@@ -178,7 +176,6 @@ public class UserLocationsView extends Activity implements LocationListener
               }
 		});
 		
-		//map.addMarker(new MarkerOptions().position(new LatLng(0,0)).title("Hello World").snippet("45/55$/Bid Now!"));
 	}
 	
 	public void getCurrentLocation() 
