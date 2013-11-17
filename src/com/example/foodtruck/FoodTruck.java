@@ -11,6 +11,9 @@ public class FoodTruck {
 	public int id;
 	public String truckName;
 	public String category;
+	public String description;
+	public String imageName;
+	
 	// the next two are the paypal information
 	//private String ppClientId;
 	//private String ccEnv;

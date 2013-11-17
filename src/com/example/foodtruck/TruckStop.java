@@ -15,6 +15,10 @@ public class TruckStop {
 
 	int stopId;
 	int truckId;
+	String biddingEndTime;
+	String truckArrivalTime;
+	int currentAmount;
+	String location;
 	
 	FoodTruck foodTruck;
 	

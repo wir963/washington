@@ -7,5 +7,8 @@
     <string name="title_activity_user_locations_view">UserLocationsView</string>
     <string name="title_activity_welcome_screen">WelcomeScreen</string>
     <string name="title_activity_paypal_transaction">PaypalTransactionActivity</string>
-
+	<string name="pledge_message">Enter your pledge amount:</string>
+	<string name="pledge_hint_message">$</string>
+	<string name="submit_text">Pledge!</string>
+    
 </resources>

@@ -25,29 +25,66 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1" >
-
-     <TextView 
-        android:id="@+id/truckInfo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
      
-     <TextView 
-        android:id="@+id/locationInfo"
+        <TextView
+         android:id="@+id/truckName"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="10dp"
+         android:layout_marginBottom="10dp" />
+        
+
+    <!-- Box that includes photo, and truck info -->
+    <include 
+        android:id="@+id/cell1" 
+        layout="@layout/truck_info_cell" 
+        android:layout_below="@id/truckName" 
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/truckInfo"/>
+        android:layout_height="wrap_content" />
+    
+    <TextView
+        android:id="@+id/currentAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cell1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" />
+     
+     <TextView
+        android:id="@+id/pledgeMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/currentAmount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/pledge_message" />
      
      <EditText
         android:id="@+id/pledgeAmount"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/locationInfo"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pledgeMessage"
+        android:layout_centerHorizontal="true"
+        android:ems="7"
+        android:hint="@string/pledge_hint_message"
+        android:background="@drawable/white_edit_text"
+        android:layout_marginBottom="10dp" >
+	 <requestFocus />
+	 </EditText>
      
      <Button 
-        android:layout_toRightOf = "@id/locationInfo"
         android:id="@+id/paypalButton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pledgeAmount"
+        android:layout_centerHorizontal="true"
+        android:text="@string/submit_text" 
+        android:gravity="center"
+        android:background="@drawable/rounded_button"
+        android:minWidth="119dp"
+        android:minHeight="28dp"/>
      
      </RelativeLayout>
 

@@ -11,6 +11,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,12 +24,11 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.philanthrofeed.R;
-import com.example.philanthrofeed.Recipient_Selection;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.location.LocationClient;
@@ -79,9 +80,30 @@ public class UserLocationsView extends Activity implements LocationListener
 				selectedStop.populateTruckInfo();
 				selectedStop.populatePledgeInfo();
 		
-				TextView truckInfo = (TextView) findViewById(R.id.truckInfo);
-				truckInfo.setText("Name: " + selectedStop.foodTruck.truckName + " Type: " + selectedStop.foodTruck.category);
+				TextView truckName = (TextView) findViewById(R.id.truckName);
+				truckName.setText(selectedStop.foodTruck.truckName);
+
+				String uri = "drawable/" + selectedStop.foodTruck.imageName;
+
+				int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+
+				ImageView truckImage = (ImageView) findViewById(R.id.truckImage);
+				Drawable image = getResources().getDrawable(imageResource);
+			    truckImage.setImageDrawable(image);
 				
+				
+				TextView truckDescription = (TextView) findViewById(R.id.truckDescription);
+				truckDescription.setText("Type: " + selectedStop.foodTruck.category + "\n" + selectedStop.foodTruck.description);
+				
+				TextView truckLocation = (TextView) findViewById(R.id.truckLocation);
+				truckDescription.setText("Type: " + selectedStop.foodTruck.category + "\n" + selectedStop.location);
+				
+				TextView endTime = (TextView) findViewById(R.id.endTime);
+				endTime.setText("Bidding End Time: " + selectedStop.biddingEndTime);
+				
+				TextView currentAmount = (TextView) findViewById(R.id.currentAmount);
+				endTime.setText("Current Amount: " + selectedStop.currentAmount);
+
 				return false;
 			}
 
