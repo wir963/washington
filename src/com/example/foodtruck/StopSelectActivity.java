@@ -101,15 +101,6 @@ public class StopSelectActivity extends Activity {
 			if(convertView == null) {
 				outputView = new View(currentContext);
 				outputView = inflater.inflate(R.layout.list_row, null);
-<<<<<<< HEAD
-				
-				TextView listItem = (TextView) outputView.findViewById(R.id.list_item);
-				TextView listTitle = (TextView) outputView.findViewById(R.id.list_title);
-				
-				listItem.setText("" + stopList.get(position).truckId);
-				
-				listTitle.setText("" + stopList.get(position).truckId);
-=======
 
 				TextView locationTitle = (TextView) outputView.findViewById(R.id.list_title);
 				TextView locationAmount = (TextView) outputView.findViewById(R.id.list_amount);
@@ -125,7 +116,7 @@ public class StopSelectActivity extends Activity {
 
 				locationTitle.setText(stopList.get(position).location); // Text description of this location
 				locationAmount.setText(stopList.get(position).currentAmount);  
->>>>>>> 18df6f66d3cbb281e078fb035839c055265294be
+
 			}
 			else
 			{
