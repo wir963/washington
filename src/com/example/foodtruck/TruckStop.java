@@ -3,6 +3,12 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import android.util.Log;
+
+import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
+import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
+
 
 public class TruckStop {
 
@@ -16,6 +22,19 @@ public class TruckStop {
 	
 	public TruckStop(){
 		
+	}
+	
+	public void insertIntoDB(MobileServiceClient mClient){
+		mClient.getTable(TruckStop.class).insert(this, new TableOperationCallback<TruckStop>() {
+		      public void onCompleted(TruckStop entity, Exception exception, ServiceFilterResponse response) {
+		            if (exception == null) {
+		                  Log.w("success", "Truck Stop Object created!");
+		            } else {
+		                  // Insert failed
+		            	exception.printStackTrace();
+		            }
+		      }
+		});
 	}
 	
 	/*public Double getAmountPledged(){

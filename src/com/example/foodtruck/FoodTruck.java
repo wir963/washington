@@ -1,6 +1,10 @@
 package com.example.foodtruck;
 
-import java.util.UUID;
+import android.util.Log;
+
+import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
+import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
 
 public class FoodTruck {
 	
@@ -19,7 +23,20 @@ public class FoodTruck {
 	}*/
 	
 	public FoodTruck() {
-		
+	}
+	
+	public void insertIntoDB(MobileServiceClient mClient){
+		mClient.getTable(FoodTruck.class).insert(this, new TableOperationCallback<FoodTruck>() {
+		      public void onCompleted(FoodTruck entity, Exception exception, ServiceFilterResponse response) {
+		            if (exception == null) {
+		            	Log.w("success", "FoodTruck object created!");
+		            	Log.w("id of the food truck", entity.id + " ");
+		            } else {
+		                  // Insert failed
+		            	exception.printStackTrace();
+		            }
+		      }
+		});
 	}
 
 }

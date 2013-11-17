@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
 			e.printStackTrace();
 		}
 		// Go to Food Truck activity
-		exampleMethod();
+		//exampleMethod();
 		
 		// Go to user locations view activity
 		
@@ -53,39 +53,12 @@ public class MainActivity extends Activity {
 	
 	public void exampleMethod() {
 		
-		
-		FoodTruck ft = new FoodTruck();
-		ft.category = "Bacon";
-		ft.truckName = "Bacon, Bacon, Bacon";
-		
-		
-		
-		mClient.getTable(FoodTruck.class).insert(ft, new TableOperationCallback<FoodTruck>() {
-		      public void onCompleted(FoodTruck entity, Exception exception, ServiceFilterResponse response) {
-		            if (exception == null) {
-		            	Log.w("success", "FoodTruck object created!");
-		            } else {
-		                  // Insert failed
-		            	exception.printStackTrace();
-		            }
-		      }
-		});
-		
 		TruckStop ts = new TruckStop();
-		ts.latitude = 0.0;
-		ts.longitude = 0.0;
-		ts.truckId = ft.id;
+		ts.latitude = 37.4;
+		ts.longitude = -121.9;
+		ts.truckId = 1;
+		ts.insertIntoDB(mClient);
 		
-		mClient.getTable(TruckStop.class).insert(ts, new TableOperationCallback<TruckStop>() {
-		      public void onCompleted(TruckStop entity, Exception exception, ServiceFilterResponse response) {
-		            if (exception == null) {
-		                  Log.w("success", "Truck Stop Object created!");
-		            } else {
-		                  // Insert failed
-		            	exception.printStackTrace();
-		            }
-		      }
-		});
 	}
 
 }
