@@ -12,7 +12,9 @@ import com.microsoft.windowsazure.mobileservices.TableQueryCallback;
 
 
 public class TruckStop {
-
+	//the database stopID that this TruckStop object corresponds to.
+	protected static final String STOP_ID = null;
+	
 	int stopId;
 	String biddingEndTime;
 	String truckArrivalTime;
