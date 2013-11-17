@@ -67,7 +67,12 @@ public class PayConfirm extends Activity{
 
 			@Override
 			public void onClick(View arg0) {
-				sendEmailNow(userEmail);
+				
+				new Thread(new Runnable() {
+				    public void run() {
+						sendEmailNow(userEmail);
+				    }
+				  }).start();
 				
 				//create email object for user, then change text/button to complete
 				//return to homescreen
@@ -124,7 +129,7 @@ public class PayConfirm extends Activity{
 		try {
 		    HttpResponse response = twilioClient.execute(twilioPost);
 		    
-		 
+		    
 		    // writing response to log
 		    Log.d("Http Response:", response.toString());
 		    Log.d("Status Code", response.getStatusLine().toString());
