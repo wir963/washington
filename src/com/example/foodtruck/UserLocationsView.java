@@ -59,6 +59,8 @@ public class UserLocationsView extends Activity implements LocationListener
 
     private static final String CONFIG_RECEIVER_EMAIL = ""; 
     
+    EditText pledgeAmount;
+    
 	GoogleMap map;
 	protected LocationListener locationListener;
 	protected LatLng myLatLng;
@@ -105,6 +107,8 @@ public class UserLocationsView extends Activity implements LocationListener
 				String stopID = arg0.getSnippet();
 				
 				selectedStop = getStopWithId(stopID);
+				
+				pledgeAmount = (EditText) findViewById(R.id.pledgeAmount);
 		
 				TextView truckName = (TextView) findViewById(R.id.truckName);
 				truckName.setText(selectedStop.truckName);
@@ -238,7 +242,7 @@ public class UserLocationsView extends Activity implements LocationListener
 	///PAYPAL STUFF
 	
 	public void onBuyPressed(View pressed) {
-		 PayPalPayment newPayment = new PayPalPayment(new BigDecimal(getIntent().getExtras().getString("amount")), "USD", "Pledge Amount");
+		 PayPalPayment newPayment = new PayPalPayment(new BigDecimal(pledgeAmount.getText().toString()), "USD", "Pledge Amount");
 	        
 	        Intent intent = new Intent(this, PaymentActivity.class);
 	        
