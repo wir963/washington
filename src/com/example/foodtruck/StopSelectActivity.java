@@ -119,8 +119,8 @@ public class StopSelectActivity extends Activity {
 				TruckStop ts = stopList.get(position);
 				locationTitle.setText(stopList.get(position).location); // Text description of this location
 
-				//locationAmount.setText(stopList.get(position).getAmountPledged(mClient) + "");  
-				locationAmount.setText(arrayStops.get(position) + "");  
+				locationAmount.setText(stopList.get(position).getAmountPledged(mClient) + "");  
+				//locationAmount.setText(arrayStops.get(position) + "");  
 			}
 			else
 			{
