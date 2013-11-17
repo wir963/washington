@@ -11,6 +11,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="The payments hve been processes and the customers have been notified via email" />
+        android:text="The payments have been processes and the customers have been notified via email" />
 
 </RelativeLayout>
