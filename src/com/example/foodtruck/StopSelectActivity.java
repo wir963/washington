@@ -115,8 +115,8 @@ public class StopSelectActivity extends Activity {
 					}});// end of onClickListener
 
 				locationTitle.setText(stopList.get(position).location); // Text description of this location
-				locationAmount.setText(stopList.get(position).getAmountPledged(mClient) + "");  
 
+				locationAmount.setText(stopList.get(position).getAmountPledged(mClient) + "");  
 			}
 			else
 			{
