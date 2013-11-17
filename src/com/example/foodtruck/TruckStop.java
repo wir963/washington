@@ -1,6 +1,7 @@
 package com.example.foodtruck;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.UUID;
 
 import android.util.Log;
@@ -12,15 +13,30 @@ import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
 
 public class TruckStop {
 
-	int id;
+	int stopId;
 	int truckId;
+	
+	FoodTruck foodTruck;
 	
 	double longitude;
 	double latitude;
 	
-	//ArrayList<Pledge> pledges = new ArrayList<Pledge>();
+	Date endTime;
+	
+	
+	// These are the IDs of the pledges
+	ArrayList<Pledge> pledges = new ArrayList<Pledge>();
+	int pledgeTotal = 0;
 	
 	public TruckStop(){
+		
+		//populate pledges arrayList by querying the pledges relation where pledgeStopId = truckId
+		
+		
+	}
+	
+	public TruckStop(String stopID, String truckID) {
+		//Query Truck table
 		
 	}
 	
@@ -35,6 +51,19 @@ public class TruckStop {
 		            }
 		      }
 		});
+	}
+
+	public void populateTruckInfo() {
+		// TODO Auto-generated method stub
+		
+		//get name and type of food truck by querying food truck table
+		
+	}
+
+	public void populatePledgeInfo() {
+		// TODO Auto-generated method stub
+		
+		//get array list of pledges, or just count up the totals
 	}
 	
 	/*public Double getAmountPledged(){
