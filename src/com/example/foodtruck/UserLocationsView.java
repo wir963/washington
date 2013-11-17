@@ -65,6 +65,7 @@ public class UserLocationsView extends Activity implements LocationListener
 			@Override
 			public boolean onMarkerClick(Marker arg0) {
 				String snippet = arg0.getSnippet();
+				
 				return false;
 			}
 		});
@@ -100,7 +101,7 @@ public class UserLocationsView extends Activity implements LocationListener
             	  if (exception == null) {
             		  for (TruckStop ts : result) {
             			  Log.w("TruckStop", ts.id + " ");
-            			  map.addMarker(new MarkerOptions().position(new LatLng(ts.latitude,ts.longitude)).title(ts.truckId + " ").snippet("45/55$/Bid Now!"));
+            			  map.addMarker(new MarkerOptions().position(new LatLng(ts.latitude,ts.longitude)).title(ts.truckId + " ").snippet(ts.truckId + ""));
             		  }
             	  } 
             	  else {
