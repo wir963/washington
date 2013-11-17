@@ -118,7 +118,7 @@ public class StopSelectActivity extends Activity {
 				TextView listItem = (TextView) outputView.findViewById(R.id.list_item);
 				TextView listTitle = (TextView) outputView.findViewById(R.id.list_title);
 				
-				listItem.setText("" + stopList.get(position).id);
+				listItem.setText("" + stopList.get(position).truckId);
 				
 				listTitle.setText("" + stopList.get(position).truckId);
 			}

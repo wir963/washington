@@ -15,6 +15,7 @@ import com.microsoft.windowsazure.mobileservices.*;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
 	
@@ -44,7 +45,7 @@ public class MainActivity extends Activity {
 		
 		// Go to user locations view activity
 		
-		Button goToUserLocationViewButton = (Button) findViewById(R.id.userViewButton);
+		ImageButton goToUserLocationViewButton = (ImageButton) findViewById(R.id.userViewButton);
 		goToUserLocationViewButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -54,7 +55,7 @@ public class MainActivity extends Activity {
 				startActivity(launchUserLocationView);
 			}});// end of onClickListener
 		
-		Button goToTruckViewButton = (Button) findViewById(R.id.truckViewButton);
+		ImageButton goToTruckViewButton = (ImageButton) findViewById(R.id.truckViewButton);
 		goToTruckViewButton.setOnClickListener(new OnClickListener() {
 
 			@Override
