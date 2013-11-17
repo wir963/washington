@@ -122,7 +122,7 @@ public class UserLocationsView extends Activity implements LocationListener
 			    truckImage.setImageDrawable(image);
 				
 				TextView truckDescription = (TextView) findViewById(R.id.truckDescription);
-				truckDescription.setText("Description: " + selectedStop.description);
+				truckDescription.setText(selectedStop.description);
 				
 				TextView truckLocation = (TextView) findViewById(R.id.truckLocation);
 				truckLocation.setText("Location: " + selectedStop.location);
