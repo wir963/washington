@@ -85,7 +85,7 @@ public class MainActivity extends Activity {
 		TruckStop ts2 = new TruckStop();
 		ts2.latitude = 37.4;
 		ts2.longitude = -121.8;
-		ts2.truckId = 2;
+		ts2.truckId = 1;
 		ts2.truckName = "Bacon, Bacon";
 		ts2.description = "The bacon food truck for San Francisco features bacon on a burger, bacon dipped in chocolate, a pork belly sandwich and bacon jam for added bacon deliciousness.";
 		ts2.biddingEndTime = "11:30 AM";
@@ -97,7 +97,7 @@ public class MainActivity extends Activity {
 		TruckStop ts3 = new TruckStop();
 		ts3.latitude = 37.5;
 		ts3.longitude = -122.0;
-		ts3.truckId = 3;
+		ts3.truckId = 1;
 		ts3.truckName = "Gold Rush Eatery";
 		ts3.description = "Gold Rush Eatery roams the streets of San Jose serving up quality burgers, sandwiches, and of course, their 'Golden Nugget' tater tots. Gold Rush Eatery's signature sandwich is the The Prospector; made with Tri Tip, mushrooms, and green onions in a sherrry wine sauce. Check in often for additions to the menu such as root beer floats and clam chowder, and definetly give their Bermuda Onion Rings a try.";
 		ts3.biddingEndTime = "11:00 AM";
@@ -109,7 +109,7 @@ public class MainActivity extends Activity {
 		TruckStop ts4 = new TruckStop();
 		ts4.latitude = 37.2;
 		ts4.longitude = -121.9;
-		ts4.truckId = 4;
+		ts4.truckId = 1;
 		ts4.truckName = "The Waffle Roost";
 		ts4.description = "Welcome to the Bay Area's own Chicken & Waffles Truck! We pair (a slightly spicy) traditional buttermilk fried chicken with a true Belgian waffle. We mix and match them in all sorts of ways. Pair that combo with some traditional Southern sides and you've been introduced to the Roost.";
 		ts4.biddingEndTime = "10:00 AM";
