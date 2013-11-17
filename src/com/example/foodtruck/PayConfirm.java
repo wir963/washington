@@ -100,14 +100,7 @@ public class PayConfirm extends Activity{
 		sendgrid.send();
 	}
 	
-	protected void sendEmailLater(String userEmail){
-		SendGrid sendgrid = new SendGrid("janetzhu", "ledian3722");
-		sendgrid.addTo(userEmail);
-		sendgrid.setFrom("getTrucked@gmail.com");
-		sendgrid.setSubject("You gotTRUCKED!");  
-		sendgrid.setText("Mexicana is coming to your location from 12:00-2:00pm!  Head on over to redeem your $" + EXTRA_PAYMENT_AMOUNT);
-		sendgrid.send();
-	}
+
 	
 	public void twilioTest() {
 

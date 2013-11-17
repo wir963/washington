@@ -102,6 +102,10 @@
             android:name="com.example.foodtruck.StopListActivity"
             android:label="@string/title_activity_stop_list" >
         </activity>
+        <activity
+            android:name="com.example.foodtruck.TruckConfirmation"
+            android:label="@string/title_activity_truck_confirmation" >
+        </activity>
     </application>
 
 </manifest>
