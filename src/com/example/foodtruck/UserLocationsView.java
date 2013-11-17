@@ -122,7 +122,7 @@ public class UserLocationsView extends Activity implements LocationListener
 			    truckImage.setImageDrawable(image);
 				
 				TextView truckDescription = (TextView) findViewById(R.id.truckDescription);
-				truckDescription.setText("Description: " + selectedStop.description);
+				truckDescription.setText(selectedStop.description);
 				
 				TextView truckLocation = (TextView) findViewById(R.id.truckLocation);
 				truckLocation.setText("Location: " + selectedStop.location);
@@ -153,8 +153,8 @@ public class UserLocationsView extends Activity implements LocationListener
 		// zoom into the current location
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(myLatLng, 10));
 		addMarkers();
-		//map.addMarker(new MarkerOptions().position(new LatLng(0,0)).title("Hello World").snippet("45/55$/Bid Now!"));
-	
+
+		
 		Button payButton = (Button) findViewById(R.id.paypalButton);
 		
 		payButton.setOnClickListener(new OnClickListener(){
@@ -202,6 +202,35 @@ public class UserLocationsView extends Activity implements LocationListener
             	  else {
             		  exception.printStackTrace();
             	  }
+          		// repeated code... last minute hack...
+          		
+          		selectedStop = currentStopList.get(0);
+          		
+          		pledgeAmount = (EditText) findViewById(R.id.pledgeAmount);
+
+          		TextView truckName = (TextView) findViewById(R.id.truckName);
+          		truckName.setText(selectedStop.truckName);
+
+          		String uri = "drawable/" + selectedStop.imageName;
+
+          		int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+
+          		ImageView truckImage = (ImageView) findViewById(R.id.truckImage);
+          		Drawable image = getResources().getDrawable(imageResource);
+          	    truckImage.setImageDrawable(image);
+          		
+          		TextView truckDescription = (TextView) findViewById(R.id.truckDescription);
+          		truckDescription.setText("Description: " + selectedStop.description);
+          		
+          		TextView truckLocation = (TextView) findViewById(R.id.truckLocation);
+          		truckLocation.setText("Location: " + selectedStop.location);
+          		
+          		TextView endTime = (TextView) findViewById(R.id.endTime);
+          		endTime.setText("Bidding End Time: " + selectedStop.biddingEndTime);
+          		
+          		TextView currentAmount = (TextView) findViewById(R.id.currentAmount);
+          		currentAmount.setText("Current Amount: " + selectedStop.getAmountPledged(mClient));
+          		// end of terrible / last-minute hack
               }
 		});
 		

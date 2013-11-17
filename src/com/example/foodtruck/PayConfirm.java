@@ -42,16 +42,11 @@ public class PayConfirm extends Activity{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		//Remove title bar
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-		//Remove notification bar
-		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.pay_confirm_layout);
 
 		super.onCreate(savedInstanceState);
 		emailText = (TextView) findViewById(R.id.emailText);
-		emailText.setText("Give us your email so we can tell you if your food truck is coming to you!");
+		//emailText.setText();
 		emailText.setVisibility(View.VISIBLE);
 		
 		doneText = (TextView) findViewById(R.id.doneText);

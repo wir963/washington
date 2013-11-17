@@ -16,7 +16,8 @@
          android:layout_height="wrap_content"
          android:layout_toRightOf="@id/truckImage"
          android:layout_marginTop="10dp"
-         android:layout_marginLeft="10dp" />
+         android:layout_marginLeft="10dp" 
+         android:textSize="13sp"/>
       
       <TextView
         android:id="@+id/truckLocation"
@@ -25,7 +26,10 @@
         android:layout_below="@id/truckDescription"
         android:layout_toRightOf="@id/truckImage"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="13sp" />
+      
       
       <TextView
         android:id="@+id/endTime"
@@ -34,6 +38,9 @@
         android:layout_below="@id/truckLocation"
         android:layout_toRightOf="@id/truckImage"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp" 
+        android:textSize="13sp"/>
+
     
 </RelativeLayout>

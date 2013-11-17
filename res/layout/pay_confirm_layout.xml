@@ -11,14 +11,17 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/background" >
+    android:background="@drawable/final_screen" >
     
     <TextView
          android:id="@+id/emailText"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_marginTop="10dp"
-         android:layout_marginBottom="10dp" />
+         android:layout_marginTop="200dp"
+         android:layout_marginBottom="10dp"
+         android:textSize="13sp"
+         android:text="Give us your email so we can tell you if your food truck is coming to you!"
+         android:layout_centerHorizontal="true" />
     <EditText
         android:id="@+id/userEmail"
         android:inputType="textEmailAddress"
@@ -35,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/userEmail"
         android:layout_centerHorizontal="true"
-        android:text="GetEmailUpdates" 
+        android:text="Get Email Updates" 
         android:gravity="center"
         android:background="@drawable/rounded_button"
         android:minWidth="119dp"
