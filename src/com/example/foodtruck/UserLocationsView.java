@@ -157,12 +157,12 @@ public class UserLocationsView extends Activity implements LocationListener
 			
 			@Override
 			public void onClick(View arg0) {
-		        Intent loginIntent = new Intent();
-				
-				EditText pledgeAmount = (EditText) findViewById(R.id.pledgeAmount);
-				
-				String pledgeAmt = pledgeAmount.getText().toString();
-				
+//		        Intent loginIntent = new Intent();
+//				
+//				EditText pledgeAmount = (EditText) findViewById(R.id.pledgeAmount);
+//				
+//				String pledgeAmt = pledgeAmount.getText().toString();
+//				
 				onBuyPressed(arg0);
 
 			}});
