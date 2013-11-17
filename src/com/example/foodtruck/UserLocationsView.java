@@ -130,9 +130,9 @@ public class UserLocationsView extends Activity implements LocationListener
 				TextView endTime = (TextView) findViewById(R.id.endTime);
 				endTime.setText("Bidding End Time: " + selectedStop.biddingEndTime);
 				
-				TextView currentAmount = (TextView) findViewById(R.id.currentAmount);
-				currentAmount.setText("Current Amount: " + selectedStop.getAmountPledged(mClient));
-				
+//				TextView currentAmount = (TextView) findViewById(R.id.currentAmount);
+//				currentAmount.setText("Current Amount: " + selectedStop.getAmountPledged(mClient));
+//				
 				return false;
 			}
 
@@ -228,9 +228,9 @@ public class UserLocationsView extends Activity implements LocationListener
           		TextView endTime = (TextView) findViewById(R.id.endTime);
           		endTime.setText("Bidding End Time: " + selectedStop.biddingEndTime);
           		
-          		TextView currentAmount = (TextView) findViewById(R.id.currentAmount);
-          		currentAmount.setText("Current Amount: " + selectedStop.getAmountPledged(mClient));
-          		// end of terrible / last-minute hack
+//          		TextView currentAmount = (TextView) findViewById(R.id.currentAmount);
+//          		currentAmount.setText("Current Amount: " + selectedStop.getAmountPledged(mClient));
+//          		// end of terrible / last-minute hack
               }
 		});
 		
