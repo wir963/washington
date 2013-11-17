@@ -75,11 +75,11 @@ public class MainActivity extends Activity {
 		ts.latitude = 37.3;
 		ts.longitude = -121.9;
 		ts.truckId = 1;
-		ts.truckName = "Tacos, Tacos, Tacos";
-		ts.description = "Really good tacos";
-		ts.biddingEndTime = "11:00";
-		ts.truckArrivalTime = "2:00";
-		ts.location = "Corner of Central Park";
+		ts.truckName = "Blue Saigon";
+		ts.description = "Blue Saigon Truck is owned and operated by Kiem Nguyen. He is also the head chef of this truck and took his time to master each food item on the menu. Mr. Nguyen will not serve food to customers if he won't eat it himself. Blue Saigon Truck is new and different!";
+		ts.biddingEndTime = "12:00";
+		ts.truckArrivalTime = "3:00";
+		ts.location = "Mitchell Drive & Oak Grove Rd";
 		ts.imageName = "ic_launcher";
 		ts.insertIntoDB(mClient);
 		
