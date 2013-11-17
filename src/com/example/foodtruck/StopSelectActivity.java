@@ -98,6 +98,8 @@ public class StopSelectActivity extends Activity {
 
 			LayoutInflater inflater = (LayoutInflater) currentContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			View outputView;
+			//List<String> arrayStops(); // = new List<String>();
+			//{275, 400, 100, 124};
 
 			if(convertView == null) {
 				outputView = new View(currentContext);
@@ -117,7 +119,8 @@ public class StopSelectActivity extends Activity {
 				TruckStop ts = stopList.get(position);
 				locationTitle.setText(stopList.get(position).location); // Text description of this location
 
-				locationAmount.setText(stopList.get(position).getAmountPledged(mClient) + "");  
+				//locationAmount.setText(stopList.get(position).getAmountPledged(mClient) + "");  
+				locationAmount.setText(arrayStops.get(position) + "");  
 			}
 			else
 			{
