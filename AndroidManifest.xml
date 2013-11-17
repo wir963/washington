@@ -81,6 +81,10 @@
             android:name="com.example.foodtruck.PaypalTransactionActivity"
             android:label="@string/title_activity_paypal_transaction" >
         </activity>
+        <activity
+            android:name="com.example.foodtruck.PayConfirm"
+            android:label="@string/title_activity_paypal_transaction" >
+        </activity>
 
         <service
             android:name="com.paypal.android.sdk.payments.PayPalService"
@@ -97,6 +101,10 @@
         <activity
             android:name="com.example.foodtruck.StopListActivity"
             android:label="@string/title_activity_stop_list" >
+        </activity>
+        <activity
+            android:name="com.example.foodtruck.TruckConfirmation"
+            android:label="@string/title_activity_truck_confirmation" >
         </activity>
     </application>
 

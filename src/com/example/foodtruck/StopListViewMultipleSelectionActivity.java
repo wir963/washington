@@ -48,7 +48,7 @@ public class StopListViewMultipleSelectionActivity extends Activity implements
         //adapter = new menuAdapter(getApplicationContext(), stops);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setAdapter(adapter);
- 
+        
         button.setOnClickListener(this);
     }
  
@@ -75,7 +75,7 @@ public class StopListViewMultipleSelectionActivity extends Activity implements
         }
  
         Toast.makeText(getApplicationContext(), outputStrArr.toString(), Toast.LENGTH_LONG).show();
-        //Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
+        Intent intent = new Intent(getApplicationContext(), StopSelectActivity.class);
  
         // Create a bundle object
         //Bundle b = new Bundle();
@@ -85,7 +85,7 @@ public class StopListViewMultipleSelectionActivity extends Activity implements
         //intent.putExtras(b);
  
         // start the ResultActivity
-        //startActivity(intent);
+        startActivity(intent);
     }
     
 }
