@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent launchTruckLocationView = new Intent(getApplicationContext(), StopSelectActivity.class);
+				Intent launchTruckLocationView = new Intent(getApplicationContext(), StopListViewMultipleSelectionActivity.class);
 				startActivity(launchTruckLocationView);
 			}});// end of onClickListener
 		
