@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
 			e.printStackTrace();
 		}
 		// Go to Food Truck activity
-		exampleMethod();
+		//exampleMethod();
 		
 		// Go to user locations view activity
 		
@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent launchTruckLocationView = new Intent(getApplicationContext(), StopListViewMultipleSelectionActivity.class);
+				Intent launchTruckLocationView = new Intent(getApplicationContext(), StopSelectActivity.class);
 				startActivity(launchTruckLocationView);
 			}});// end of onClickListener
 		

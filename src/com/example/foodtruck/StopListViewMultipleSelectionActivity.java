@@ -42,13 +42,13 @@ public class StopListViewMultipleSelectionActivity extends Activity implements
         	ts.location = "Behind the Park";
         }
  
-        String[] sports = {"\n \n location 1 \n \n", "location 2", "location 3", "location 4", "location 5", "location 6"};
+        String[] sports = {"location 1", "location 2", "location 3", "location 4", "location 5", "location 6"};
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, sports);
         
         //adapter = new menuAdapter(getApplicationContext(), stops);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setAdapter(adapter);
- 
+        
         button.setOnClickListener(this);
     }
  
