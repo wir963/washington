@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -32,6 +34,13 @@ public class StopSelectActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_stop_select);
+		
+		//Remove title bar
+				this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+				//Remove notification bar
+				this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 
 		// connect to the Azure MobileServiceClient
 		try {
@@ -98,6 +107,8 @@ public class StopSelectActivity extends Activity {
 
 			LayoutInflater inflater = (LayoutInflater) currentContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			View outputView;
+			//List<String> arrayStops(); // = new List<String>();
+			//{275, 400, 100, 124};
 
 			if(convertView == null) {
 				outputView = new View(currentContext);
@@ -118,6 +129,7 @@ public class StopSelectActivity extends Activity {
 				locationTitle.setText(stopList.get(position).location); // Text description of this location
 
 				locationAmount.setText(stopList.get(position).getAmountPledged(mClient) + "");  
+				//locationAmount.setText(arrayStops.get(position) + "");  
 			}
 			else
 			{

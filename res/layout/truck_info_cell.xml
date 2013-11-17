@@ -17,7 +17,7 @@
          android:layout_toRightOf="@id/truckImage"
          android:layout_marginTop="10dp"
          android:layout_marginLeft="10dp" 
-         android:textSize="13sp"/>
+         android:textSize="16sp"/>
       
       <TextView
         android:id="@+id/truckLocation"
@@ -28,7 +28,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:textSize="13sp" />
+        android:textSize="16sp" />
       
       
       <TextView
@@ -40,7 +40,17 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp" 
-        android:textSize="13sp"/>
-
+        android:textSize="16sp"/>
+      
+      <TextView
+        android:id="@+id/currentAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/endTime"
+        android:layout_toRightOf="@id/truckImage"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp" 
+        android:textSize="16sp"/>
     
 </RelativeLayout>
