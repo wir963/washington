@@ -13,6 +13,10 @@ import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Toast;
+
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.RelativeLayout;
@@ -46,7 +50,15 @@ public class UserLocationsView extends Activity implements LocationListener
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		//no android header
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+		//Remove notification bar
+		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
 		setContentView(R.layout.activity_user_locations_view);
+		
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 		map.setMyLocationEnabled(true);
 		map.setOnMarkerClickListener(new OnMarkerClickListener() {
