@@ -27,15 +27,28 @@
         android:layout_weight="1" >
 
      <TextView 
-         android:id="@+id/locationInfo"
+        android:id="@+id/truckInfo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
      
      <TextView 
-         android:id="@+id/truckInfo"
+        android:id="@+id/locationInfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/truckInfo"/>
+     
+     <EditText
+        android:id="@+id/pledgeAmount"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/locationInfo"/>
+     
+     <Button 
+        android:layout_toRightOf = "@id/locationInfo"
+        android:id="@+id/paypalButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+     
      </RelativeLayout>
 
 </LinearLayout>

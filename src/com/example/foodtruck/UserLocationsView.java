@@ -10,15 +10,18 @@ import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
-
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +49,9 @@ public class UserLocationsView extends Activity implements LocationListener
 	protected Location location;
 	private MobileServiceClient mClient;
 	
+	protected List<TruckStop> currentStopList;
+	protected TruckStop selectedStop;
+	
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +71,27 @@ public class UserLocationsView extends Activity implements LocationListener
 			@Override
 			public boolean onMarkerClick(Marker arg0) {
 				String snippet = arg0.getSnippet();
+				String stopID = snippet;
+				
+				selectedStop = getStopWithId(stopID);
+				selectedStop.populateTruckInfo();
+				selectedStop.populatePledgeInfo();
+		
+				TextView truckInfo = (TextView) findViewById(R.id.truckInfo);
+				truckInfo.setText("Name: " + selectedStop.foodTruck.truckName + " Type: " + selectedStop.foodTruck.category);
+				
 				return false;
+			}
+
+			private TruckStop getStopWithId(String stopID) {
+				/*int intStopId =  Integer.parseInt(stopID);
+				for(int i = 0; i < currentStopList.size(); i++) {
+					if(intStopId == currentStopList.get(i).stopId) {
+						return currentStopList.get(i);
+					}
+					
+				}*/
+				return null;
 			}
 		});
 		lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -75,6 +101,25 @@ public class UserLocationsView extends Activity implements LocationListener
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(myLatLng, 10));
 		addMarkers();
 		//map.addMarker(new MarkerOptions().position(new LatLng(0,0)).title("Hello World").snippet("45/55$/Bid Now!"));
+	
+		Button payButton = (Button) findViewById(R.id.paypalButton);
+		
+		payButton.setOnClickListener(new OnClickListener(){
+			
+			@Override
+			public void onClick(View arg0) {
+		        Intent loginIntent = new Intent();
+				
+				EditText pledgeAmount = (EditText) findViewById(R.id.pledgeAmount);
+				
+				String pledgeAmt = pledgeAmount.getText().toString();
+				
+				//Toast newToast = Toast.makeText(getApplicationContext(), username + password, Toast.LENGTH_LONG);
+				//newToast.show();
+    			Intent moveToMenuSelection = new Intent(getApplicationContext(), PaypalTransactionActivity.class); //will launch the PayPal Transaction app
+    			startActivity(moveToMenuSelection);
+			}});
+		
 	}
 
 	@Override
@@ -99,9 +144,10 @@ public class UserLocationsView extends Activity implements LocationListener
               public void onCompleted(List<TruckStop> result, int count, Exception exception, ServiceFilterResponse response) {
             	  if (exception == null) {
             		  for (TruckStop ts : result) {
-            			  Log.w("TruckStop", ts.id + " ");
-            			  map.addMarker(new MarkerOptions().position(new LatLng(ts.latitude,ts.longitude)).title(ts.truckId + " ").snippet("45/55$/Bid Now!"));
+            			  //Log.w("TruckStop", ts.stopId + " ");
+            			  map.addMarker(new MarkerOptions().position(new LatLng(ts.latitude,ts.longitude)).title(ts.name).snippet("" + ts.truckDescription));
             		  }
+            		  currentStopList = result;
             	  } 
             	  else {
             		  exception.printStackTrace();
@@ -120,8 +166,6 @@ public class UserLocationsView extends Activity implements LocationListener
 		if (location != null) {
 			myLatLng = new LatLng(location.getLatitude(), location.getLongitude());
 		}
-
-
 	}
 
 	@Override

@@ -6,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_user_locations_view">UserLocationsView</string>
     <string name="title_activity_welcome_screen">WelcomeScreen</string>
-
+    <string name="title_activity_paypal_transaction">PaypalTransactionActivity</string>
+	<string name="title_activity_stop_select">StopSelectActivity</string>
 </resources>

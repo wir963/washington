@@ -15,14 +15,8 @@ public class FoodTruck {
 	//private String ppClientId;
 	//private String ccEnv;
 	
-	/*public FoodTruck(String name, String category, String clientId, String env){
-		truckName = name;
-		this.category = category;
-		ppClientId = clientId;
-		ccEnv = env;
-	}*/
-	
 	public FoodTruck() {
+		
 	}
 	
 	public void insertIntoDB(MobileServiceClient mClient){
