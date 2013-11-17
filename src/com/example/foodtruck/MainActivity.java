@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent launchTruckLocationView = new Intent(getApplicationContext(), StopSelectActivity.class);
+				Intent launchTruckLocationView = new Intent(getApplicationContext(), StopListViewMultipleSelectionActivity.class);
 				startActivity(launchTruckLocationView);
 			}});// end of onClickListener
 		
@@ -72,13 +72,13 @@ public class MainActivity extends Activity {
 		
 		TruckStop ts = new TruckStop();
 		ts.latitude = 37.3;
-		ts.longitude = -121.9;
+		ts.longitude = -121.6;
 		ts.truckId = 1;
-		ts.truckName = "Tacos, Tacos, Tacos";
+		ts.truckName = "Gold Rush Eatery";
 		ts.description = "Really good tacos";
 		ts.biddingEndTime = "11:00";
 		ts.truckArrivalTime = "2:00";
-		ts.location = "Corner of Central Park";
+		ts.location = "5th and N";
 		ts.imageName = "ic_launcher";
 		ts.insertIntoDB(mClient);
 		
