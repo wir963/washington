@@ -7,19 +7,22 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 public class TruckConfirmation extends Activity {
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//setContentView(R.layout.activity_truck_confirmation);
 		setContentView(R.layout.activity_truck_confirmation);
 		
+		
 		//Remove title bar
-				this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+				//this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 				//Remove notification bar
-				this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+				//this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		
 		new Thread(new Runnable() {

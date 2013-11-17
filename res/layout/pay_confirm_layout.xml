@@ -17,9 +17,9 @@
          android:id="@+id/emailText"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_marginTop="200dp"
+         android:layout_marginTop="350dp"
          android:layout_marginBottom="10dp"
-         android:textSize="13sp"
+         android:textSize="20sp"
          android:text="Give us your email so we can tell you if your food truck is coming to you!"
          android:layout_centerHorizontal="true" />
     <EditText
@@ -41,14 +41,16 @@
         android:text="Get Email Updates" 
         android:gravity="center"
         android:background="@drawable/rounded_button"
-        android:minWidth="119dp"
-        android:minHeight="28dp"/>
+        android:minWidth="130dp"
+        android:minHeight="35dp"/>
      
       <TextView
          android:id="@+id/doneText"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_marginTop="10dp"
-         android:layout_marginBottom="10dp"/>
+         android:layout_marginTop="350dp"
+         android:layout_marginBottom="10dp"
+         android:layout_centerHorizontal="true"
+         android:textSize="20sp"/>
     
 </RelativeLayout>

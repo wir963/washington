@@ -36,10 +36,10 @@ public class StopSelectActivity extends Activity {
 		setContentView(R.layout.activity_stop_select);
 		
 		//Remove title bar
-				this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+				//this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 				//Remove notification bar
-				this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+				//this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
 		// connect to the Azure MobileServiceClient
@@ -122,7 +122,7 @@ public class StopSelectActivity extends Activity {
 					@Override
 					public void onClick(View v) {
 						Intent launchTruckConfirmationView = new Intent(getApplicationContext(), TruckConfirmation.class);
-						launchTruckConfirmationView.putExtra("", stopList.get(position).id);
+						//launchTruckConfirmationView.putExtra("", stopList.get(position).id);
 						startActivity(launchTruckConfirmationView);
 					}});// end of onClickListener
 				TruckStop ts = stopList.get(position);

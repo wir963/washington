@@ -51,7 +51,7 @@ public class StopListViewMultipleSelectionActivity extends Activity implements
         	ts.location = "Behind the Park";
         }
  
-        String[] sports = {"location 1", "location 2", "location 3", "location 4", "location 5", "location 6"};
+        String[] sports = {"Mitchell Drive & Oak Grove Rd", "1710 Mission Street, San Francisco, CA", "300 Rio Robles E, San Jose, CA", "100 Rio Lowes, San Jose, CA", "6028 Pitt Street, San Francisco, CA", "1342 Lake Drive, San Francisco, CA"};
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, sports);
         
         //adapter = new menuAdapter(getApplicationContext(), stops);

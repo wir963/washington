@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
 			e.printStackTrace();
 		}
 		// Go to Food Truck activity
-		exampleMethod();
+		//exampleMethod();
 		
 		// Go to user locations view activity
 		

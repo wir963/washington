@@ -14,5 +14,6 @@
     <string name="title_activity_stop_list">StopListActivity</string>
     <string name="truck_stop_list">Pick Your Stops For Today!</string>
     <string name="title_activity_truck_confirmation">TruckConfirmation</string>
+    <string name="truck_confirm">The payments have been processed and the customers have been notified via email</string>
 
 </resources>
