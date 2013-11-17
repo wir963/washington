@@ -38,7 +38,6 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        
         <activity
             android:name="com.example.foodtruck.WelcomeScreen"
             android:label="@string/title_activity_welcome_screen" >
@@ -65,6 +64,8 @@
             android:value="AIzaSyANGcHeT4a9_NZyuq1-xhacis-FJ7pKbNY" />
 
         <activity
+            android:name="com.example.foodtruck.StopSelectActivity"
+            android:label="@string/title_activity_stop_select" >
             android:name="com.example.foodtruck.PaypalTransactionActivity"
             android:label="@string/title_activity_paypal_transaction" >
         </activity>
