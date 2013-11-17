@@ -6,11 +6,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".TruckConfirmation" >
+    tools:context=".TruckConfirmation"
+    android:background="@drawable/final_screen" >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="The payments hve been processes and the customers have been notified via email" />
+        android:text="The payments have been processed and the customers have been notified via email" 
+        android:layout_marginTop="200sp"/>
 
 </RelativeLayout>

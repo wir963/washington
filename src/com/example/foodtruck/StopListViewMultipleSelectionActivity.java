@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.foodtruck.StopSelectActivity.menuAdapter;
- 
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,8 @@ import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
@@ -34,6 +36,13 @@ public class StopListViewMultipleSelectionActivity extends Activity implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stop_list);// activity_stop_list == main
+        
+      //Remove title bar
+      		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+      		//Remove notification bar
+      		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
  
         findViewsById();
         ArrayList<TruckStop> stops = new ArrayList<TruckStop>();

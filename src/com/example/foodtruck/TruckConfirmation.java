@@ -5,6 +5,8 @@ import com.github.sendgrid.SendGrid;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.Window;
+import android.view.WindowManager;
 
 public class TruckConfirmation extends Activity {
 
@@ -12,6 +14,13 @@ public class TruckConfirmation extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_truck_confirmation);
+		
+		//Remove title bar
+				this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+				//Remove notification bar
+				this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 		
 		new Thread(new Runnable() {
 		    public void run() {
