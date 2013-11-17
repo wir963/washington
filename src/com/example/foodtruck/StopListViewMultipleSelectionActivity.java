@@ -37,11 +37,11 @@ public class StopListViewMultipleSelectionActivity extends Activity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stop_list);// activity_stop_list == main
         
-      //Remove title bar
-      		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //Remove title bar
+      	//this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-      		//Remove notification bar
-      		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+      	//Remove notification bar
+      	//this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
  
         findViewsById();
