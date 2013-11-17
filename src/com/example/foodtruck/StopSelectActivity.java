@@ -109,9 +109,9 @@ public class StopSelectActivity extends Activity {
 
 					@Override
 					public void onClick(View v) {
-						Intent launchUserLocationView = new Intent(getApplicationContext(), UserLocationsView.class);
-						launchUserLocationView.putExtra("", stopList.get(position).id);
-						startActivity(launchUserLocationView);
+						Intent launchTruckConfirmationView = new Intent(getApplicationContext(), TruckConfirmation.class);
+						launchTruckConfirmationView.putExtra("", stopList.get(position).id);
+						startActivity(launchTruckConfirmationView);
 					}});// end of onClickListener
 				TruckStop ts = stopList.get(position);
 				locationTitle.setText(stopList.get(position).location); // Text description of this location

@@ -13,5 +13,6 @@
     <string name="title_activity_stop_select">StopSelectActivity</string>
     <string name="title_activity_stop_list">StopListActivity</string>
     <string name="truck_stop_list">Pick Your Stops For Today!</string>
+    <string name="title_activity_truck_confirmation">TruckConfirmation</string>
 
 </resources>
